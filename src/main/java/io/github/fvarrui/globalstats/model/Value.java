@@ -1,6 +1,8 @@
 
 package io.github.fvarrui.globalstats.model;
 
+import java.time.LocalDateTime;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -21,6 +23,10 @@ public class Value {
 	@SerializedName("rank")
 	@Expose
 	private Integer rank;
+
+	@SerializedName("updated_at")
+	@Expose
+	private LocalDateTime updatedAt;
 
 	public String getKey() {
 		return key;
@@ -54,9 +60,18 @@ public class Value {
 		this.rank = rank;
 	}
 
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
 	@Override
 	public String toString() {
-		return "Value [key=" + key + ", value=" + value + ", sorting=" + sorting + ", rank=" + rank + "]";
+		return "Value [key=" + key + ", value=" + value + ", sorting=" + sorting + ", rank=" + rank + ", updatedAt="
+				+ updatedAt + "]";
 	}
 
 }

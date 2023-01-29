@@ -1,6 +1,8 @@
 
 package io.github.fvarrui.globalstats.model;
 
+import java.net.URL;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,11 +22,11 @@ public class Achievement {
 
 	@SerializedName("image_active")
 	@Expose
-	private String imageActive;
+	private URL imageActive;
 
 	@SerializedName("image_inactive")
 	@Expose
-	private String imageInactive;
+	private URL imageInactive;
 
 	public String getKey() {
 		return key;
@@ -50,19 +52,19 @@ public class Achievement {
 		this.description = description;
 	}
 
-	public String getImageActive() {
+	public URL getImageActive() {
 		return imageActive;
 	}
 
-	public void setImageActive(String imageActive) {
+	public void setImageActive(URL imageActive) {
 		this.imageActive = imageActive;
 	}
 
-	public String getImageInactive() {
+	public URL getImageInactive() {
 		return imageInactive;
 	}
 
-	public void setImageInactive(String imageInactive) {
+	public void setImageInactive(URL imageInactive) {
 		this.imageInactive = imageInactive;
 	}
 

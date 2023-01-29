@@ -15,7 +15,7 @@ public class Stats {
 	@Expose
 	private String id;
 
-	@SerializedName("values")
+	@SerializedName(value = "values", alternate = "statistics")
 	@Expose
 	private List<Value> values = null;
 

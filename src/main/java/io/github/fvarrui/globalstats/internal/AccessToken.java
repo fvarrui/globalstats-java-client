@@ -1,4 +1,4 @@
-package io.github.fvarrui.globalstats.model;
+package io.github.fvarrui.globalstats.internal;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -8,11 +8,11 @@ public class AccessToken {
 	@SerializedName("access_token")
 	@Expose
 	private String accessToken;
-	
+
 	@SerializedName("token_type")
 	@Expose
 	private String tokenType;
-	
+
 	@SerializedName("expires_in")
 	@Expose
 	private Integer expiresIn;
@@ -39,6 +39,12 @@ public class AccessToken {
 
 	public void setExpiresIn(Integer expiresIn) {
 		this.expiresIn = expiresIn;
+	}
+
+	@Override
+	public String toString() {
+		return "AccessToken [accessToken=" + accessToken + ", tokenType=" + tokenType + ", expiresIn=" + expiresIn
+				+ "]";
 	}
 
 }
