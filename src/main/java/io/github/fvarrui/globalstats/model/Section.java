@@ -3,12 +3,12 @@ package io.github.fvarrui.globalstats.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatsSection {
+public class Section {
 
 	private Rank userRank;
 	private List<Rank> ranks = new ArrayList<>();
 
-	public StatsSection(Rank userRank, List<Rank> betterRanks, List<Rank> worseRanks) {
+	public Section(Rank userRank, List<Rank> betterRanks, List<Rank> worseRanks) {
 		super();
 		this.userRank = userRank;
 		this.ranks.addAll(betterRanks);
@@ -26,7 +26,7 @@ public class StatsSection {
 
 	@Override
 	public String toString() {
-		return "StatsSection [userRank=" + userRank + ", ranks=" + ranks + "]";
+		return "Section [userRank=" + userRank + ", ranks=" + ranks + "]";
 	}
 
 }

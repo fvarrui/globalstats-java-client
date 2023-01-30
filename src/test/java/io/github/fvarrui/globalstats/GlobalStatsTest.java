@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import io.github.fvarrui.globalstats.model.Rank;
 import io.github.fvarrui.globalstats.model.Stats;
-import io.github.fvarrui.globalstats.model.StatsSection;
+import io.github.fvarrui.globalstats.model.Section;
 
 public class GlobalStatsTest {
 	
@@ -104,7 +104,7 @@ public class GlobalStatsTest {
 
 		System.out.println("-----> getSectionTest:");
 		
-		StatsSection section = client.getStatsSection(id, "score");
+		Section section = client.getStatsSection(id, "scoree");
 		
 		System.out.println(section);
 		

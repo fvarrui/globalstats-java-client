@@ -9,14 +9,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import io.github.fvarrui.globalstats.adapters.LocalDateTimeAdapter;
-import io.github.fvarrui.globalstats.api.GlobalStatsInterface;
-import io.github.fvarrui.globalstats.internal.AccessToken;
-import io.github.fvarrui.globalstats.internal.SectionResults;
-import io.github.fvarrui.globalstats.internal.StatsQuery;
-import io.github.fvarrui.globalstats.model.GlobalStatsException;
+import io.github.fvarrui.globalstats.internal.GlobalStatsInterface;
+import io.github.fvarrui.globalstats.internal.model.AccessToken;
+import io.github.fvarrui.globalstats.internal.model.SectionResults;
+import io.github.fvarrui.globalstats.internal.model.StatsQuery;
+import io.github.fvarrui.globalstats.model.Achievement;
+import io.github.fvarrui.globalstats.model.Error;
 import io.github.fvarrui.globalstats.model.Rank;
 import io.github.fvarrui.globalstats.model.Stats;
-import io.github.fvarrui.globalstats.model.StatsSection;
+import io.github.fvarrui.globalstats.model.Section;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -53,7 +54,8 @@ public class GlobalStats {
 	
 	private void assertResponse(Response<?> response) throws Exception {
 		if (!response.isSuccessful()) {
-			throw gson.fromJson(response.errorBody().string(), GlobalStatsException.class);
+			Error error = gson.fromJson(response.errorBody().string(), Error.class);
+			throw new GlobalStatsException(error);
 		}
 	}
 	
@@ -106,7 +108,7 @@ public class GlobalStats {
 		return response.body();
 	}
 	
-	public StatsSection getStatsSection(String id, String key) throws Exception {
+	public Section getStatsSection(String id, String key) throws Exception {
 		Response<SectionResults> response = service.getSection(
 			"Bearer " + getAccessToken(),
 			id,
@@ -114,7 +116,7 @@ public class GlobalStats {
 		).execute();
 		assertResponse(response);
 		SectionResults results = response.body();
-		return new StatsSection(results.getUserRank(), results.getBetterRanks().getData(), results.getWorseRanks().getData());
+		return new Section(results.getUserRank(), results.getBetterRanks().get("data"), results.getWorseRanks().get("data"));
 	}
 	
 	@SuppressWarnings("serial")
@@ -129,8 +131,36 @@ public class GlobalStats {
 			query
 		).execute();
 		assertResponse(response);
-		Map<String, List<Rank>> results = response.body();
-		return results.get("data");
+		return response.body().get("data");
+	}
+	
+	public List<Achievement> getAllAchievements() throws Exception {
+		Response<Map<String, List<Achievement>>> response = service.getAllAchievements(
+			"Bearer " + getAccessToken()
+		).execute();
+		assertResponse(response);
+		response.body();
+		return response.body().get("achievements");
+	}
+
+	public Achievement accomplish(String id, String achievement) throws Exception {
+		Response<Map<String, Achievement>> response = service.accomplish(
+			"Bearer " + getAccessToken(),
+			id,
+			achievement
+		).execute();
+		assertResponse(response);
+		response.body();
+		return response.body().get("achievement");
+	}
+
+	public List<Achievement> getUserAchievements(String id) throws Exception {
+		Response<Map<String, List<Achievement>>> response = service.getAllAchievements(
+			"Bearer " + getAccessToken()
+		).execute();
+		assertResponse(response);
+		response.body();
+		return response.body().get("achievements");
 	}
 	
 }

@@ -28,6 +28,10 @@ public class Achievement {
 	@Expose
 	private URL imageInactive;
 
+	@SerializedName("accomplished")
+	@Expose
+	private Boolean accomplished;
+
 	public String getKey() {
 		return key;
 	}
@@ -71,7 +75,7 @@ public class Achievement {
 	@Override
 	public String toString() {
 		return "Achievement [key=" + key + ", name=" + name + ", description=" + description + ", imageActive="
-				+ imageActive + ", imageInactive=" + imageInactive + "]";
+				+ imageActive + ", imageInactive=" + imageInactive + ", accomplished=" + accomplished + "]";
 	}
 
 }

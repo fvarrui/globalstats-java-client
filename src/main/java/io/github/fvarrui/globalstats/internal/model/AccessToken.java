@@ -1,4 +1,4 @@
-package io.github.fvarrui.globalstats.internal;
+package io.github.fvarrui.globalstats.internal.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

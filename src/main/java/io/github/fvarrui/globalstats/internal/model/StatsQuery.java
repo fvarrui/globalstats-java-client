@@ -1,4 +1,4 @@
-package io.github.fvarrui.globalstats.internal;
+package io.github.fvarrui.globalstats.internal.model;
 
 import java.util.Map;
 
