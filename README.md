@@ -30,7 +30,7 @@ cd globalstats-java-client
 ```
 
 > Omits `./` on Windows.
-> 
+
 > Use `--branch devel` option for SNAPSHOT versions.
 
 ## Usage examples
@@ -72,18 +72,18 @@ Output:
 
 ```
 Stats [
-    name=username, 
-    id=63d8f9d59f5e8817248b4577, 
-    values=[
-        Value [
-            key=highscore, 
-            value=100, 
-            sorting=desc, 
-            rank=7, 
-            updatedAt=null
+    name=username,     
+    id=63d8f9d59f5e8817248b4577, 
+    values=[
+        Value [
+            key=highscore, 
+            value=100, 
+            sorting=desc, 
+            rank=7, 
+            updatedAt=null
         ]
-    ], 
-    achievements=[]
+    ], 
+    achievements=[]
 ]
 ```
 
@@ -119,7 +119,7 @@ Stats [
             value=120, 
             sorting=desc, 
             rank=1, 
-            updatedAt=2023-01-29T17:31:32
+            updatedAt=2023-01-29T17:31:32
         ]
     ], 
     achievements=[]
@@ -143,20 +143,19 @@ Output:
 
 ```
 Stats [
-    name=username, 
-    id=63d8f9d59f5e8817248b4577, 
-    values=[
-        Value [
-            key=highscore, 
-            value=120, 
-            sorting=desc, 
-            rank=1, 
-            updatedAt=2023-01-29T17:31:32
-        ]
-    ], 
-    achievements=null
+    name=username, 
+    id=63d8f9d59f5e8817248b4577, 
+    values=[
+        Value [
+            key=highscore, 
+            value=120, 
+            sorting=desc, 
+            rank=1, 
+            updatedAt=2023-01-29T17:31:32
+        ]
+    ], 
+    achievements=null
 ]
-
 ```
 
 ### Get user statistics section
@@ -176,23 +175,23 @@ Output:
 
 ```
 Section [
-	userRank=Rank [
-    	name=username, 
+    userRank=Rank [
+        name=username, 
         userProfile=null, 
         userIcon=null, 
         value=2150, 
         rank=2, 
         additionals=null
-	], 
+    ], 
     ranks=[
-    	Rank [
-        	name=cnorris, 
-        	userProfile=null, 
+        Rank [
+            name=cnorris, 
+            userProfile=null, 
             userIcon=null, 
             value=8192, 
             rank=1, 
             additionals=null
-		], 
+        ], 
         Rank [
         	name=username, 
             userProfile=null, 
@@ -200,32 +199,32 @@ Section [
             value=2150, 
             rank=2, 
             additionals=null
-		], 
+        ], 
         Rank [
-        	name=stallone, 
+            name=stallone, 
             userProfile=null, 
             userIcon=null, 
             value=201, 
             rank=3, 
             additionals=null
-		], 
+        ], 
         Rank [
-        	name=cbronson, 
+            name=cbronson, 
             userProfile=null, 
             userIcon=null, 
             value=169, 
             rank=4, 
             additionals=null
-		], 
+        ], 
         Rank [
-        	name=vandamme, 
+            name=vandamme, 
             userProfile=null, 
             userIcon=null, 
             value=123, 
             rank=5, 
             additionals=null
-		]
-	]
+        ]
+    ]
 ]
 ```
 
@@ -244,29 +243,29 @@ Output:
 
 ```
 [
-	Rank [
-		name=cnorris, 
-		userProfile=null, 
-		userIcon=null, 
-		value=8192, 
-		rank=1, 
-		additionals=null
-	], 
-	Rank [
-		name=username, 
-		userProfile=null, 
-		userIcon=null, 
-		value=2150, 
-		rank=2, 
-		additionals=null
-	], 
-	Rank [
-		name=stallone, 
-		userProfile=null, 
-		userIcon=null, 
-		value=201, 
-		rank=3, 
-		additionals=null
-	]
+    Rank [
+        name=cnorris, 
+        userProfile=null, 
+        userIcon=null, 
+        value=8192, 
+        rank=1, 
+        additionals=null
+    ], 
+    Rank [
+        name=username, 
+        userProfile=null, 
+        userIcon=null, 
+        value=2150, 
+        rank=2, 
+        additionals=null
+    ], 
+    Rank [
+        name=stallone, 
+        userProfile=null, 
+        userIcon=null, 
+        value=201, 
+        rank=3, 
+        additionals=null
+    ]
 ]
 ```
