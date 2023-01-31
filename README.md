@@ -164,8 +164,8 @@ Stats [
 Code:
 
 ```java
-Stats stats = client.getStats("63d8f9d59f5e8817248b4577");
-System.out.println(stats);
+Section section = client.getStatsSection("63d8f9d59f5e8817248b4577", "highscore");
+System.out.println(section);
 ```
 
 Where:
