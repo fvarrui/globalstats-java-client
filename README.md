@@ -62,6 +62,12 @@ Stats stats = client.createStats("username", new HashMap<String, Object>() {{
 System.out.println(stats);
 ```
 
+Where:
+
+- `username` is the player name.
+
+- `highscore` is a GTD key (Game Tracked Data).
+
 Output:
 
 ```
@@ -74,10 +80,193 @@ Stats [
             value=100, 
             sorting=desc, 
             rank=7, 
-            updatedAt=null]
+            updatedAt=null
+        ]
     ], 
     achievements=[]
 ]
 ```
 
-[...]
+> Your game must save the generated user ID in order to retrieve or update player statistics.
+
+### Update user statistics
+
+Code:
+
+```java
+// increase "username" with id "63d8f9d59f5e8817248b4577" highscore in 20 points
+Stats stats = client.updateStats("63d8f9d59f5e8817248b4577", new HashMap<String, Object>() {{
+    put("highscore", "+20");
+}});
+System.out.println(stats);
+```
+
+Where:
+
+- `63d8f9d59f5e8817248b4577` is the generated user ID.
+
+- `highscore` is the GTD key to be updated (in this case it is increaded in 20 points).
+
+Output:
+
+```
+Stats [
+    name=username, 
+    id=63d8f9d59f5e8817248b4577, 
+    values=[
+        Value [
+            key=highscore, 
+            value=120, 
+            sorting=desc, 
+            rank=1, 
+            updatedAt=2023-01-29T17:31:32
+        ]
+    ], 
+    achievements=[]
+]
+```
+
+### Get user statistics
+
+Code:
+
+```java
+Stats stats = client.getStats("63d8f9d59f5e8817248b4577");
+System.out.println(stats);
+```
+
+Where:
+
+- `63d8f9d59f5e8817248b4577` is the generated user ID.
+
+Output:
+
+```
+Stats [
+    name=username, 
+    id=63d8f9d59f5e8817248b4577, 
+    values=[
+        Value [
+            key=highscore, 
+            value=120, 
+            sorting=desc, 
+            rank=1, 
+            updatedAt=2023-01-29T17:31:32
+        ]
+    ], 
+    achievements=null
+]
+
+```
+
+### Get user statistics section
+
+Code:
+
+```java
+Stats stats = client.getStats("63d8f9d59f5e8817248b4577");
+System.out.println(stats);
+```
+
+Where:
+
+- `63d8f9d59f5e8817248b4577` is the generated user ID.
+
+Output:
+
+```
+Section [
+	userRank=Rank [
+    	name=username, 
+        userProfile=null, 
+        userIcon=null, 
+        value=2150, 
+        rank=2, 
+        additionals=null
+	], 
+    ranks=[
+    	Rank [
+        	name=cnorris, 
+        	userProfile=null, 
+            userIcon=null, 
+            value=8192, 
+            rank=1, 
+            additionals=null
+		], 
+        Rank [
+        	name=username, 
+            userProfile=null, 
+            userIcon=null, 
+            value=2150, 
+            rank=2, 
+            additionals=null
+		], 
+        Rank [
+        	name=stallone, 
+            userProfile=null, 
+            userIcon=null, 
+            value=201, 
+            rank=3, 
+            additionals=null
+		], 
+        Rank [
+        	name=cbronson, 
+            userProfile=null, 
+            userIcon=null, 
+            value=169, 
+            rank=4, 
+            additionals=null
+		], 
+        Rank [
+        	name=vandamme, 
+            userProfile=null, 
+            userIcon=null, 
+            value=123, 
+            rank=5, 
+            additionals=null
+		]
+	]
+]
+```
+
+### Get leaderboard
+
+Code:
+
+```java
+Stats stats = client.getLeaderboard("highscore", 3);
+System.out.println(stats);
+```
+
+> `3` is the limit of results.
+
+Output:
+
+```
+[
+	Rank [
+		name=cnorris, 
+		userProfile=null, 
+		userIcon=null, 
+		value=8192, 
+		rank=1, 
+		additionals=null
+	], 
+	Rank [
+		name=username, 
+		userProfile=null, 
+		userIcon=null, 
+		value=2150, 
+		rank=2, 
+		additionals=null
+	], 
+	Rank [
+		name=stallone, 
+		userProfile=null, 
+		userIcon=null, 
+		value=201, 
+		rank=3, 
+		additionals=null
+	]
+]
+```
