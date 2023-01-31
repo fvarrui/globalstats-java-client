@@ -162,7 +162,7 @@ public class GlobalStats {
 	 * Gets user stats section (stats compared to better and worse users) 
 	 * @param id User Id
 	 * @param key GTD key to be compared
-	 * @return User ranking
+	 * @return User ranking position
 	 * @throws Exception If something went wrong
 	 */
 	public Section getStatsSection(String id, String key) throws Exception {
