@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * GlobalStats API client
- * @see <a hred="https://globalstats.io/api">GlobalStats API docs</a>
+ * @see <a href="https://globalstats.io/api">GlobalStats API docs</a>
  * @author fvarrui
  */
 public class GlobalStats {

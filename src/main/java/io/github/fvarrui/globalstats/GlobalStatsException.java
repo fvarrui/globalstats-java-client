@@ -2,6 +2,10 @@ package io.github.fvarrui.globalstats;
 
 import io.github.fvarrui.globalstats.model.Error;
 
+/**
+ * GlobalStats API error exception
+ * @author fvarrui
+ */
 public class GlobalStatsException extends Exception {
 	private static final long serialVersionUID = -4546541580805813125L;
 	
