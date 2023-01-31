@@ -6,7 +6,7 @@
 	
 	<groupId>io.github.fvarrui</groupId>
 	<artifactId>globalstats-java-client</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0-SNAPSHOT</version>
 	
 	<name>globalstats-java-client</name>
 	<description>GlobalStats.io API client in Java for saving and sharing your games statistics</description>
