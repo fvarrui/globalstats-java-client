@@ -19,7 +19,7 @@ public class GlobalStatsTest {
 	
 	private static final String CLIENT_ID = "RQlOcbRK2xc4L1pAroHimRESIX187mVYdhNpsFav";
 	private static final String CLIENT_SECRET = "nAYoZyQog8L8MDQKEYS1TRfaEFDkP8xcIvAI3q6k";
-	private static final String KEY = "score";
+	private static final String GTD_KEY = "score";
 	
 	private String id;
 	private GlobalStats client;
@@ -54,7 +54,7 @@ public class GlobalStatsTest {
 		String name = "user" + UUID.randomUUID().toString();
 		
 		Stats stats = client.createStats(name, new HashMap<String, Object>() {{
-			put(KEY, 100);
+			put(GTD_KEY, 100);
 		}});
 		
 		System.out.println(stats);
@@ -63,7 +63,7 @@ public class GlobalStatsTest {
 		assertEquals(stats.getName(), name);
 		assertTrue(
 				stats.getValues().stream()
-					.filter(value -> value.getKey().equals(KEY))
+					.filter(value -> value.getKey().equals(GTD_KEY))
 					.anyMatch(value -> value.getValue() == 100)
 		);
 		
@@ -76,7 +76,7 @@ public class GlobalStatsTest {
 		System.out.println("-----> updateStatsTest:");
 		
 		Stats stats = client.updateStats(id, new HashMap<String, Object>() {{
-			put(KEY, "20");			
+			put(GTD_KEY, "20");			
 		}});
 		
 		System.out.println(stats);
@@ -104,7 +104,7 @@ public class GlobalStatsTest {
 
 		System.out.println("-----> getSectionTest:");
 		
-		Section section = client.getStatsSection(id, "scoree");
+		Section section = client.getStatsSection(id, "score");
 		
 		System.out.println(section);
 		
