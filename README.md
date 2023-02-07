@@ -193,7 +193,7 @@ Section [
             additionals=null
         ], 
         Rank [
-        	name=username, 
+            name=username, 
             userProfile=null, 
             userIcon=null, 
             value=2150, 
@@ -233,8 +233,8 @@ Section [
 Code:
 
 ```java
-Stats stats = client.getLeaderboard("highscore", 3);
-System.out.println(stats);
+List<Rank> leaderboard = client.getLeaderboard("highscore", 3);
+System.out.println(leaderboard);
 ```
 
 > `3` is the limit of results.
